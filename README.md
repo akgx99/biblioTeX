@@ -7,6 +7,8 @@ Projet de système et réseaux de Licence 3 d'informatique
 - gcc
 - pdftotext
 - gnuplot
+- shell
+- awk
 
 ## Compilation
 
