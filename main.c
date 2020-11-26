@@ -7,4 +7,4 @@ int main(void)
 	Hello();
 	return EXIT_SUCCESS;
 }
-					
+
