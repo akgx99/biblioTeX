@@ -10,6 +10,21 @@ Projet de système et réseaux de Licence 3 d'informatique
 - shell
 - awk
 
+## Arborescence
+
+`
+Racine
+├── bin/
+│   └── L'éxécutable du projet
+├── include/
+│   └── Tous les fichiers .h
+├── lib/
+│   └── touts les fichiers de librairies tierces (.a/.so)
+├── src/
+│   └── Tous les fichier sources (.c)
+└── Makefile
+`
+
 ## Compilation
 
 Dans un terminal à la racine du projet :
@@ -18,6 +33,6 @@ Dans un terminal à la racine du projet :
 
 ## Exécution
 
-Pour éxécuter le programme, là où se trouve l'éxécutable :
+Pour éxécuter le programme, dans le dossier bin/ :
 
 `./biblioTeX`
