@@ -4,7 +4,7 @@
 #include "biblioManager.h"
 
 void printHelp(void) {
-   system("cat info.app");
+   system("cat app.info");
 }
 
 void printError(char *errStr){

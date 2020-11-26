@@ -1,0 +1,35 @@
+ ______  _________ ______   _       _________ _______ _________ _______          
+(  ___ \ \__   __/(  ___ \ ( \      \__   __/(  ___  )\__   __/(  ____ \|\     /|
+| (   ) )   ) (   | (   ) )| (         ) (   | (   ) |   ) (   | (    \/( \   / )
+| (__/ /    | |   | (__/ / | |         | |   | |   | |   | |   | (__     \ (_) / 
+|  __ (     | |   |  __ (  | |         | |   | |   | |   | |   |  __)     ) _ (  
+| (  \ \    | |   | (  \ \ | |         | |   | |   | |   | |   | (       / ( ) \ 
+| )___) )___) (___| )___) )| (____/\___) (___| (___) |   | |   | (____/\( /   \ )
+|/ \___/ \_______/|/ \___/ (_______/\_______/(_______)   )_(   (_______/|/     \|
+                                                                                 
+                                                
+Permet de gérer une bibliographie LaTeX au format .bib
+
+Usage :
+
+	./bibTeX <opt> [<document>]
+
+Where :
+
+	<opt>
+		'-h' ou '-help' : permet d'avoir de l'aide sur les commandes disponibles.
+		
+		'-add' : permet d'ajouter un document à la bibliographie.
+		
+		'-delete <document>' : permet de supprimer un document.
+		
+		'-update <document>' : permet d'éditer un document.
+		
+		'-ls' : permet de lister les document.
+		
+		'-find <document>' : permet de trouver un document.
+		
+		'-stats' : permet de générer des statistiques.
+		
+
+Copyright - Chantony Ty & Thomas Bénas - 2020.
