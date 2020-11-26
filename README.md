@@ -33,6 +33,6 @@ Dans un terminal à la racine du projet :
 
 ## Exécution
 
-Pour éxécuter le programme, dans le dossier bin/ :
+Pour éxécuter le programme :
 
 `./biblioTeX`
