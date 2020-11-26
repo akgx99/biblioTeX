@@ -21,26 +21,24 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    //-h -help
-    if( strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "-help") == 0) {
+    if( strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "-help") == 0) {  //-h -help
         printHelp();
         return EXIT_SUCCESS;
     }
-
-    //-add
-     if( strcmp(argv[1], "-add") == 0) {
+    else if(strcmp(argv[1], "-add") == 0) {  //-add
         
         return EXIT_SUCCESS;
     }
-
-    //-delete <document>
-     if( strcmp(argv[1], "-delete") == 0 && isDocumentExist(argv[2])) {
-        
+    else if(strcmp(argv[1], "-delete") == 0 && isDocumentExist(argv[2])) {  //-delete <document>
         return EXIT_SUCCESS;
     }
-    else if(!isDocumentExist(argv[2])){
+    else if(strcmp(argv[1], "-delete") == 0 && !isDocumentExist(argv[2])){
         char *err = strcat(argv[2], " document to be deleted does not exist in the database.");;
         printError(err);
+        return EXIT_FAILURE;
+    }
+    else{ // cas d'erreur général
+        printError("Argument invalid");
         return EXIT_FAILURE;
     }
 }   
