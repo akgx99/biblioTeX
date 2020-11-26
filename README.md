@@ -20,6 +20,8 @@ Racine
 │   └── Tous les fichiers .h
 ├── lib/
 │   └── touts les fichiers de librairies tierces (.a/.so)
+├── script/
+│   └── Tous les fichier de script (.sh)
 ├── src/
 │   └── Tous les fichier sources (.c)
 └── Makefile

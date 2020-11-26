@@ -1,0 +1,6 @@
+#ifndef H_GL_BIBLIOMANAGER
+#define H_GL_BIBLIOMANAGER
+
+
+
+#endif
