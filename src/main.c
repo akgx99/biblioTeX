@@ -1,14 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "hello.h"
+#include "export.h"
 
 int main(void)
 {
-	int system(const char *command);
-    chdir("script/");
-    system("./stats.sh");
-
+    showStats("script/","./stats.sh");
 	return 0;
 }
 
