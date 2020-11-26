@@ -5,6 +5,6 @@
 int main(void)
 {
 	Hello();
-	return EXIT_SUCCESS;
+	return 0;
 }
 
