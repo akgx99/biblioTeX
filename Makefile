@@ -1,20 +1,30 @@
-CC=gcc
-CFLAGS=-Wall -O
-LDFLAGS=
-EXEC= biblioTeX
-SRC=$(wildcard *.c)
-OBJ=$(SRC:.c=.o)
+SRC_DIR := src
+OBJ_DIR := obj
+BIN_DIR := bin
 
-all: $(EXEC)
+EXE := $(BIN_DIR)/biblioTeX
+SRC := $(wildcard $(SRC_DIR)/*.c)
+OBJ := $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-biblioTeX: $(OBJ)
-	$(CC) -o $@ $^ $(LDFLAGS)
+CPPFLAGS := -Iinclude -MMD -MP
+CFLAGS   := -Wall
+LDFLAGS  := -Llib
+LDLIBS   := -lm
 
-%.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+.PHONY: all clean
+
+all: $(EXE)
+
+$(EXE): $(OBJ) | $(BIN_DIR)
+	$(CC) $(LDFLAGS) $^ $(LDLIBS) -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+$(BIN_DIR) $(OBJ_DIR):
+	mkdir -p $@
 
 clean:
-	rm -f *.o core
+	@$(RM) -rv $(BIN_DIR) $(OBJ_DIR)
 
-mrproper: clean
-	rm -f $(EXEC)
+-include $(OBJ:.o=.d)
