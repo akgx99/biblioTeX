@@ -1,6 +1,6 @@
 SRC_DIR := src
 OBJ_DIR := obj
-BIN_DIR := bin
+BIN_DIR := .
 
 EXE := $(BIN_DIR)/biblioTeX
 SRC := $(wildcard $(SRC_DIR)/*.c)

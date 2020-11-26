@@ -14,8 +14,6 @@ Projet de système et réseaux de Licence 3 d'informatique
 
 ```
 Racine
-├── bin/
-│   └── L'éxécutable du projet
 ├── include/
 │   └── Tous les fichiers .h
 ├── lib/
