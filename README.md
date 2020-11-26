@@ -12,7 +12,7 @@ Projet de système et réseaux de Licence 3 d'informatique
 
 ## Arborescence
 
-`
+```
 Racine
 ├── bin/
 │   └── L'éxécutable du projet
@@ -23,7 +23,7 @@ Racine
 ├── src/
 │   └── Tous les fichier sources (.c)
 └── Makefile
-`
+```
 
 ## Compilation
 
