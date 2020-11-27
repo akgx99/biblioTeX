@@ -4,7 +4,13 @@
 #include "biblioManager.h"
 
 void printHelp(void) {
-   system("cat app.info");
+   FILE *file;
+   char buffer[256];
+
+   file = fopen("app.info", "r");
+   while (fgets(buffer,256, file))
+        printf("%s", buffer);
+    fclose(file);
 }
 
 void printError(char *errStr){
@@ -21,7 +27,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    if( strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "-help") == 0) {  //-h -help
+    if( strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "-help") == 0 || strcmp(argv[1], "--help") == 0) {  //-h -help --help
         printHelp();
         return EXIT_SUCCESS;
     }
