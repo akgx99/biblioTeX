@@ -10,24 +10,24 @@
 Chantony Ty & Thomas Bénas.																				 
                                                 
 Permet de gérer une bibliographie LaTeX au format .bib
-
+                                                                                                                                                                         
 Usage : ./bibTeX <options> [<document>]
 
-	-h									: permet d'avoir de l'aide sur les commandes disponibles.
+        -h                                  : permet d'avoir de l'aide sur les commandes disponibles.
 	
-	-help								: permet d'avoir de l'aide sur les commandes disponibles.
+        -help                               : permet d'avoir de l'aide sur les commandes disponibles.
 
-	--help								: permet d'avoir de l'aide sur les commandes disponibles.
+        --help                              : permet d'avoir de l'aide sur les commandes disponibles.
 	
-	-add  								: permet d'ajouter un document à la bibliographie.
+        -add                                : permet d'ajouter un document à la bibliographie.
 	
-	-delete <document>					: permet de supprimer un document.
+        -delete <document>                  : permet de supprimer un document.
 	
-	-update <document>					: permet d'éditer un document.
+        -update <document>                  : permet d'éditer un document.
 	
-	ls									: permet de lister les document.
+        ls                                  : permet de lister les documents.
 	
-	-find <document>  					: permet de trouver un document.
+        -find <document>                    : permet de trouver un document.
 	
-	-stats  							: permet de générer des statistiques.
+        -stats                              : permet de générer des statistiques.
 
