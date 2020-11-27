@@ -7,7 +7,7 @@ void printHelp(void) {
    FILE *file;
    char buffer[256];
 
-   file = fopen("app.info", "r");
+   file = fopen("data/app.info", "r");
    while (fgets(buffer,256, file))
         printf("%s", buffer);
     fclose(file);
