@@ -31,17 +31,19 @@ int main(int argc, char *argv[])
         printHelp();
         return EXIT_SUCCESS;
     }
-    else if(strcmp(argv[1], "-add") == 0) {  //-add
+    else if(strcmp(argv[1], "-add") == 0) {  //-add <document>
         
         return EXIT_SUCCESS;
     }
-    else if(strcmp(argv[1], "-delete") == 0 && isDocumentExist(argv[2])) {  //-delete <document>
+    else if(strcmp(argv[1], "-delete") == 0) {  //-delete <document>
+        if (!isDocumentExist(argv[2]))
+        {
+            char *err = strcat(argv[2], " document to be deleted does not exist in the database.");;
+            printError(err);
+            return EXIT_FAILURE;
+        }
+        
         return EXIT_SUCCESS;
-    }
-    else if(strcmp(argv[1], "-delete") == 0 && !isDocumentExist(argv[2])){
-        char *err = strcat(argv[2], " document to be deleted does not exist in the database.");;
-        printError(err);
-        return EXIT_FAILURE;
     }
     else{ // cas d'erreur général
         printError("Argument invalid");
