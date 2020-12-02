@@ -1,22 +1,7 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h> 
+#include <string.h>
 #include "biblioManager.h"
-
-void printHelp(void) {
-   FILE *file;
-   char buffer[256];
-
-   file = fopen("data/app.info", "r");
-   while (fgets(buffer,256, file))
-        printf("%s", buffer);
-    fclose(file);
-}
-
-void printError(char *errStr){
-    printf("Error : %s\n", errStr);
-    printf("Usage : ./bibTex -help\n");
-}
+#include "tools.h"
 
 int main(int argc, char *argv[])
 {   
@@ -31,8 +16,8 @@ int main(int argc, char *argv[])
         printHelp();
         return EXIT_SUCCESS;
     }
-    else if(strcmp(argv[1], "-add") == 0) {  //-add <document>
-        
+    else if(strcmp(argv[1], "-add") == 0) {  //-add <type>
+        addDocument(argv[2]);
         return EXIT_SUCCESS;
     }
     else if(strcmp(argv[1], "-delete") == 0) {  //-delete <document>
