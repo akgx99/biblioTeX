@@ -2,6 +2,6 @@
 #define H_GL_BIBLIOMANAGER
 
 int isDocumentExist(char *doc);
-void addDocument(void);
+void addDocument(char *type);
 
 #endif
