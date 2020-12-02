@@ -19,7 +19,8 @@ Usage : ./bibTeX <options> [<document>] [<type>]
 
         --help                              : permet d'avoir de l'aide sur les commandes disponibles.
 	
-        -add <type>                         : permet d'ajouter un document à la bibliographie.
+        -add <type>                         : permet d'ajouter un document à la bibliographie.  
+             article || book || incollection || inproceedings || misc || standard || techreport || these
 
         -import                             : permet d'ajouter un document à la bibliographie à partir d'un fichier csv, txt, pdf.
 	
