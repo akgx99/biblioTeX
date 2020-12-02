@@ -5,6 +5,7 @@ Projet de système et réseaux de Licence 3 d'informatique
 ## Dépendances
 
 - gcc
+- make
 - pdftotext
 - gnuplot
 - shell
@@ -35,4 +36,4 @@ Dans un terminal à la racine du projet :
 
 Pour éxécuter le programme :
 
-`./biblioTeX`
+`./biblioTeX <option> [<document>]`
