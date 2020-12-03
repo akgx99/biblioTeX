@@ -24,4 +24,18 @@ char* strlw(char *str){
     }
     return str;
 }
+
+char* getDocumentTypePath(char *type){
+    char *folderPath = "data/bibTeX/";
+    char *fileName = type; 
+    char *fileType = ".type";
+
+    static char absolutePath[130];
+
+    strcat(absolutePath, folderPath);
+    strcat(absolutePath, fileName);
+    strcat(absolutePath, fileType);
+
+    return absolutePath;
+}
     
