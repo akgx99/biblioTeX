@@ -11,14 +11,17 @@ int isDocumentExist(char *doc){
 
 void input(){
 
-    //on récupère le chemin absolu de la fiche type du document
-    char absolutePath[130];
-    strcpy(absolutePath, getDocumentTypePath(typeDoc));
-
-    FILE* file = fopen(absolutePath, "r");
-    char line[256], field[20][15]= {"\0"}; // field[20][15] 20 lignes de 15 caractères maximum
+    FILE* file;
+    char  absolutePath[130],
+          line[256], 
+          field[20][15]= {"\0"}; // field[20][15] 20 lignes de 15 caractères maximum
     int i = 0;
 
+    //on récupère le chemin absolu de la fiche type du document
+    strcpy(absolutePath, getDocumentTypePath(typeDoc));
+
+    //on récupère les champs à remplir du document
+    file = fopen(absolutePath, "r");
     while (fgets(line, sizeof(line), file)) {
         removeLnBreak(line);
         strcpy(field[i],line);
@@ -30,8 +33,6 @@ void input(){
     {
        printf("%s :\n", field[j]);
     }
-    
-    
 }
 
 void addDocument(char *type){
