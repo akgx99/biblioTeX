@@ -13,4 +13,7 @@ char* strlw(char *str);
 /* Retourne le chemin de la fiche type d'un document */
 char* getDocumentTypePath(char *type);
 
+/* Permet de supprimer le retour charriot d'une chaîne */
+char* removeLnBreak(char *str);
+
 #endif

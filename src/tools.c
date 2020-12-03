@@ -38,4 +38,13 @@ char* getDocumentTypePath(char *type){
 
     return absolutePath;
 }
+
+char* removeLnBreak(char *str){
+    char *tmp;
+    tmp = strchr(str , '\n');
+    if(tmp) 
+        *tmp = '\0';
+
+    return tmp;
+}
     
