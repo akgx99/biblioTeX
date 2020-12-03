@@ -26,16 +26,24 @@ void dataEntriesDocument(char *type){
 }
 
 void addDocument(char *type){
-
-    char *types[8] = {"book","article", "incollection", "inproceedings", "misc", "standard", "techreport", "these"};
-    char *t = strlw(type);
-
-    printf("*** Ajout d'un document %s ***\n", t);
     
-    if (strcmp(t, types[0]) == 0) //book
-    {
-        dataEntriesDocument(t);
-    } else{
+    FILE* file = fopen("data/bibTeX/all.type", "r");
+    char line[256] = {"\0"}; // field[20][15] 20 lignes de 15 caractères maximum
+    char *t = strlw(type);
+    int exist = 0;
+
+    while (fgets(line, sizeof(line), file)){
+        removeLnBreak(line);
+        if(strcmp(t, line) == 0)
+           exist = 1;
+    }
+    fclose(file);
+
+    if (exist == 1){
+         printf("*** Ajout d'un document %s ***\n", t);
+        input(t);
+    }
+    else{
         printError(strcat(type," is an invalid document type."));
     }
 }
