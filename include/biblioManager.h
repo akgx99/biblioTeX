@@ -8,6 +8,6 @@ int isDocumentExist(char *doc);
 void addDocument(char *type);
 
 /* Permet de saisir des données pour un document */
-void input(char *type);
+void input();
 
 #endif
