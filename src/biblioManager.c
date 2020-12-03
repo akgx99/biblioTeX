@@ -14,15 +14,22 @@ void input(char *type){
     strcpy(absolutePath, getDocumentTypePath(type));
 
     FILE* file = fopen(absolutePath, "r");
-    char line[256];
+    char line[256], field[20][15]= {"\0"}; // field[20][15] 20 lignes de 15 caractères maximum
+    int i = 0;
 
     while (fgets(line, sizeof(line), file)) {
-        printf("%s", line); 
+        removeLnBreak(line);
+        strcpy(field[i],line);
+        i++;
     }
-    printf("\n");
-
     fclose(file);
 
+    for (int j = 0; j < i; j++)
+    {
+       printf("%s :\n", field[j]);
+    }
+    
+    
 }
 
 void addDocument(char *type){
