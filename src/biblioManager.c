@@ -7,7 +7,7 @@ int isDocumentExist(char *doc){
     return 0;
 }
 
-void dataEntriesDocument(char *type){
+void input(char *type){
 
     //on récupère le chemin absolu de la fiche type du document
     char absolutePath[130];

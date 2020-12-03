@@ -7,7 +7,7 @@ int isDocumentExist(char *doc);
 /* Permet d'ajouter un document à la base de données */
 void addDocument(char *type);
 
-/* Permet de lire les données saisies par l'utilisateur pour un document */
-void dataEntriesDocument(char *type);
+/* Permet de saisir des données pour un document */
+void input(char *type);
 
 #endif
