@@ -1,9 +1,13 @@
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include "tools.h"
 
-char *typeDoc;
+char *typeDoc,
+     field[20][15], // les champs du document
+     value[20][50] // les valeurs des champs
+     = {"\0"};
+int nbField = 0; // le nombre de champs
 
 int isDocumentExist(char *doc){
     return 0;
@@ -27,9 +31,15 @@ void setField(){
     fclose(file);
 }
 
-    for (int j = 0; j < i; j++)
+void input(){
+    char *temp = typeDoc;
+
+    for (int j = 0; j < nbField; j++) // on propose à l'utilisateur de saisir une valeur pour chaque champ du document 
     {
-       printf("%s :\n", field[j]);
+       printf("%s : ", field[j]);
+       scanf("%s", temp);
+       removeLnBreak(temp);
+       strcpy(value[j], temp);
     }
 }
 
@@ -38,7 +48,7 @@ void addDocument(char *type){
     typeDoc = type;
 
     FILE* file = fopen("data/bibTeX/all.type", "r");
-    char line[256] = {"\0"}; // field[20][15] 20 lignes de 15 caractères maximum
+    char line[256] = {"\0"};
     char *t = strlw(typeDoc);
     int exist = 0;
 
@@ -49,8 +59,9 @@ void addDocument(char *type){
     }
     fclose(file);
 
-    if (exist == 1){
+    if (exist == 1){ // le type de document saisi existe
         printf("*** Ajout d'un document %s ***\n", t);
+        setField();
         input(t);
     }
     else{
