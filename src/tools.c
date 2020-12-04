@@ -26,6 +26,7 @@ char* strlw(char *str){
 }
 
 char* getDocumentTypePath(char *type){
+
     char *folderPath = "data/bibTeX/";
     char *fileName = type; 
     char *fileType = ".type";
