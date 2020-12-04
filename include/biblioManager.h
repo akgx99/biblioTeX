@@ -4,6 +4,9 @@
 /* Permet de dire si un document existe ou non dans la base */
 int isDocumentExist(char *doc);
 
+/* Permet de récupérer les champs du document depuis sa fiche type */
+void setField();
+
 /* Permet de saisir des données pour un document */
 void input();
 

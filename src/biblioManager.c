@@ -9,14 +9,11 @@ int isDocumentExist(char *doc){
     return 0;
 }
 
-void input(){
-
+void setField(){
     FILE* file;
     char  absolutePath[130],
-          line[256], 
-          field[20][15]= {"\0"}; // field[20][15] 20 lignes de 15 caractères maximum
-    int i = 0;
-
+          line[256];
+   
     //on récupère le chemin absolu de la fiche type du document
     strcpy(absolutePath, getDocumentTypePath(typeDoc));
 
@@ -24,10 +21,11 @@ void input(){
     file = fopen(absolutePath, "r");
     while (fgets(line, sizeof(line), file)) {
         removeLnBreak(line);
-        strcpy(field[i],line);
-        i++;
+        strcpy(field[nbField],line);
+        nbField++;
     }
     fclose(file);
+}
 
     for (int j = 0; j < i; j++)
     {
