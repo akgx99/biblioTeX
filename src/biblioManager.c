@@ -4,8 +4,8 @@
 #include "tools.h"
 
 char *typeDoc,
-     field[20][15], // les champs du document
-     value[20][50] // les valeurs des champs
+     field[20][50], // les champs du document
+     value[20][512] // les valeurs des champs
      = {"\0"};
 int nbField = 0; // le nombre de champs
 
@@ -32,7 +32,7 @@ int isDocumentExist(){
 void setField(){
     FILE* file;
     char  absolutePath[130],
-          line[256];
+          line[50];
    
     //on récupère le chemin absolu de la fiche type du document
     strcpy(absolutePath, getDocumentTypePath(typeDoc));
@@ -48,12 +48,12 @@ void setField(){
 }
 
 void input(){
-    char temp[128];
+    char temp[512];
 
     for (int j = 0; j < nbField; j++) // on propose à l'utilisateur de saisir une valeur pour chaque champ du document 
     {
        printf("%s : ", field[j]);
-       scanf("%128[^\n]%*c",temp);
+       scanf("%512[^\n]%*c",temp); //permet de prendre en compte les espaces de la chaînes de caractères
        removeLnBreak(temp);
        strcpy(value[j], temp);
     }
