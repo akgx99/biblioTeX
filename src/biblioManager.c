@@ -60,11 +60,11 @@ void addDocument(char *type){
     typeDoc = type;
 
     if (isDocumentExist() == 1){ // le type de document saisi existe
-        printf("*** Ajout d'un document %s ***\n", typeDoc);
+        printf("*** Ajout d'un document de type : %s ***\n", typeDoc);
         setField();
         input();
     }
-    else{
+    else{ // il n'existe pas
         printError(strcat(typeDoc," is an invalid document type."));
     }
 }
