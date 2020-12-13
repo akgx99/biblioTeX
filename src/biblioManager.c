@@ -53,7 +53,7 @@ void input(){
     for (int j = 0; j < nbField; j++) // on propose à l'utilisateur de saisir une valeur pour chaque champ du document 
     {
        printf("%s : ", field[j]);
-       scanf("%s", temp);
+       scanf("%128[^\n]%*c",temp);
        removeLnBreak(temp);
        strcpy(value[j], temp);
     }
@@ -63,7 +63,7 @@ void write(){
     FILE* file;
     char *type = typeDoc;
 
-    file = fopen("test.bib", "a");
+    file = fopen("TestFile/test.bib", "a");
 
     fprintf(file, "\n");
     fprintf(file, "@%s{%s,\n", type, value[0]);
