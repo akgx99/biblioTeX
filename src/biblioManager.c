@@ -10,11 +10,15 @@ char *typeDoc,
 int nbField = 0; // le nombre de champs
 
 int isDocumentExist(){
-    FILE* file = fopen("data/bibTeX/all.type", "r");
-    char line[256] = {"\0"};
-    typeDoc = strlw(typeDoc);
+    FILE* file;
+    char  line[256] = {"\0"},
+          *allDoc;
     int exist = 0;
 
+    allDoc = "data/bibTeX/all.type";
+    typeDoc = strlw(typeDoc);
+
+    file = fopen(allDoc, "r");
     while (fgets(line, sizeof(line), file)){
         removeLnBreak(line);
         if(strcmp(typeDoc, line) == 0)
@@ -44,7 +48,7 @@ void setField(){
 }
 
 void input(){
-    char *temp = typeDoc;
+    char temp[128];
 
     for (int j = 0; j < nbField; j++) // on propose à l'utilisateur de saisir une valeur pour chaque champ du document 
     {
@@ -55,6 +59,22 @@ void input(){
     }
 }
 
+void write(){
+    FILE* file;
+    char *type = typeDoc;
+
+    file = fopen("test.bib", "a");
+
+    fprintf(file, "\n");
+    fprintf(file, "@%s{%s,\n", type, value[0]);
+    for(int i = 0; i < nbField; i++){
+        fprintf(file, "%s = {%s},\n", field[i], value[i]);
+    }
+    fprintf(file, "}\n");
+
+    fclose(file);
+}
+
 void addDocument(char *type){
 
     typeDoc = type;
@@ -63,6 +83,7 @@ void addDocument(char *type){
         printf("*** Ajout d'un document de type : %s ***\n", typeDoc);
         setField();
         input();
+        write();
     }
     else{ // il n'existe pas
         printError(strcat(typeDoc," is an invalid document type."));
