@@ -67,7 +67,7 @@ void write(){
 
     fprintf(file, "\n");
     fprintf(file, "@%s{%s,\n", type, value[0]);
-    for(int i = 0; i < nbField; i++){
+    for(int i = 1; i < nbField; i++){
         fprintf(file, "%s = {%s},\n", field[i], value[i]);
     }
     fprintf(file, "}\n");
