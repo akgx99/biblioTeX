@@ -66,8 +66,8 @@ void write(){
     file = fopen("TestFile/test.bib", "a");
 
     fprintf(file, "\n");
-    fprintf(file, "@%s{%s,\n", type, value[0]);
-    for(int i = 1; i < nbField; i++){
+    fprintf(file, "@%s{%s,\n", type, value[0]); // écriture de la premier ligne du document à insérer dans le .bib
+    for(int i = 1; i < nbField; i++){ // écriture des caractéristiques du document avec les valeurs saisie par l'utilisateur
         fprintf(file, "%s = {%s},\n", field[i], value[i]);
     }
     fprintf(file, "}\n");
