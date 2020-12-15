@@ -111,6 +111,5 @@ int find(char *name){
 }
 
 void delete(char *name){
-    execl(".sh script/delete.sh", (char*) PATH_BIB, name, NULL);
-    printf("*** Votre document à bien été supprimé de la base ! chemin du fichier : %s ***\n", PATH_BIB);
+    execl("script/./delete.sh", "script/./delete.sh", (char*) PATH_BIB, name, NULL);
 }
