@@ -86,7 +86,7 @@ void addDocument(char *type){
         setField();
         input();
         write();
-        printf("\n*** Votre document à bien été ajouté à la base ! ***\n");
+        printf("\n*** Votre document à bien été ajouté à la base ! Dans le fichier : %s ***\n", PATH_BIB);
     }
     else{ // il n'existe pas
         printError(strcat(typeDoc," is an invalid document type."));
