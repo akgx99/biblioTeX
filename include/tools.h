@@ -16,4 +16,7 @@ char* getDocumentTypePath(char *type);
 /* Permet de supprimer le retour charriot d'une chaîne */
 char* removeLnBreak(char *str);
 
+/* Permet de trouver une chaîne de caractère dans un fichier*/
+int findstr(char *str , char *file);
+
 #endif

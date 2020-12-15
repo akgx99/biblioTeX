@@ -48,4 +48,20 @@ char* removeLnBreak(char *str){
 
     return tmp;
 }
+
+int findstr(char *str , char *file){
+   char line[1024] ;
+   FILE* f = fopen(file, "r");
+   int res = 0;
+
+   while (fgets(line , sizeof(line) , f )!= NULL)
+   {
+      if (strstr(line , str )!= NULL)
+      {
+         res = 1;
+      }
+   }
+
+   return res;
+}
     
