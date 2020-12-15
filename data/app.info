@@ -11,7 +11,7 @@ Chantony Ty & Thomas Bénas -- projet de SR L3 info
                                                 
 Permet de gérer une bibliographie LaTeX au format .bib
                                                                                                                                                                          
-Usage : ./bibTeX <options> [<document>] [<type>]
+Usage : ./bibTeX <options> [<name>] [<type>]
 
         -h                                  : permet d'avoir de l'aide sur les commandes disponibles.
 	
@@ -27,13 +27,13 @@ Usage : ./bibTeX <options> [<document>] [<type>]
         -export <type>                      : permet d'exporter au format pdf ou txt la bibliographie
                 pdf || txt
 	
-        -delete <document>                  : permet de supprimer un document.
+        -delete <name>                      : permet de supprimer un document.
 	
-        -update <document>                  : permet d'éditer un document.
+        -update <name> <type>               : permet d'éditer un document.
 	
         -ls                                 : permet de lister les documents.
 	
-        -find <document>                    : permet de trouver un document.
+        -find <name>                        : permet de trouver un document.
 	
         -stats                              : permet de générer des statistiques.
 
