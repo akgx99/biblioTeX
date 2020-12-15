@@ -3,22 +3,24 @@
 #include <stdlib.h>
 #include "tools.h"
 
+char const PATH_BIB[35] = "TestFile/test.bib"; // chemin vers le .bib
+char const PATH_ALL_DOC[35] = "data/bibTeX/all.type"; // chemin vers all.type (fichier ou se trouve toute les infos des document bibtex)
+
 char *typeDoc,
      field[20][50], // les champs du document
      value[20][512] // les valeurs des champs
      = {"\0"};
+
 int nbField = 0; // le nombre de champs
 
 int isDocumentExist(){
     FILE* file;
-    char  line[256] = {"\0"},
-          *allDoc;
+    char  line[256] = {"\0"};
     int exist = 0;
 
-    allDoc = "data/bibTeX/all.type";
     typeDoc = strlw(typeDoc);
 
-    file = fopen(allDoc, "r");
+    file = fopen(PATH_ALL_DOC, "r");
     while (fgets(line, sizeof(line), file)){
         removeLnBreak(line);
         if(strcmp(typeDoc, line) == 0)
@@ -63,7 +65,7 @@ void write(){
     FILE* file;
     char *type = typeDoc;
 
-    file = fopen("TestFile/test.bib", "a");
+    file = fopen(PATH_BIB, "a");
 
     fprintf(file, "\n");
     fprintf(file, "@%s{%s,\n", type, value[0]); // écriture de la premier ligne du document à insérer dans le .bib
