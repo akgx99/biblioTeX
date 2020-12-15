@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "biblioManager.h"
 #include "export.h"
 #include "tools.h"
@@ -49,7 +50,11 @@ int main(int argc, char *argv[])
     else if(strcmp(argv[1], "-find") == 0) { //-find <document>
 
          if(argc == 3){
-            find(argv[2]);
+            if(find(argv[2]) == 0){
+                printf("Le document \"%s\" n'existe pas dans la base.\n", argv[2]);
+            } else {
+                printf("Le document \"%s\" existe bien dans la base.\n", argv[2]);
+            }
             return EXIT_SUCCESS;
         }else{
             char *err = "Specify the name of the document.";
