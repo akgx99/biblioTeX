@@ -13,11 +13,11 @@ void showStats(char *folder, char *script) {
 }
 
 void exportBiblio(char *ext){
-    if(strcmp(ext, "pdf") == 0)
+    if(strcmp(ext, "pdf") == 0) // si l'extension est pdf 
     {
         printf("*** Export de la bibliographie en pdf ***\n");
     }
-    else if(strcmp(ext, "txt") == 0)
+    else if(strcmp(ext, "txt") == 0) // sinon si l'extension est txt
     {
         printf("*** Export de la bibliographie en txt ***\n");
     }
