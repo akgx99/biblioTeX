@@ -92,3 +92,19 @@ void addDocument(char *type){
         printError(strcat(typeDoc," is an invalid document type."));
     }
 }
+
+void find(char *name){
+
+    static char toFind[300];
+
+    strcat(toFind, "{");
+    strcat(toFind, name);
+    strcat(toFind, ",");
+
+    if(findstr(toFind, PATH_BIB) == 1){
+        printf("\nle document \"%s\" existe dans la base\n", name);
+    }
+    else{
+         printf("\nle document \"%s\" n'existe pas dans la base\n", name);
+    }
+}
