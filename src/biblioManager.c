@@ -31,7 +31,7 @@ int isDocumentExist(){
     return exist;
 }
 
-void setField(){
+void setFields(){
     FILE* file;
     char  absolutePath[130],
           line[50];
@@ -49,7 +49,7 @@ void setField(){
     fclose(file);
 }
 
-void input(){
+void setValues(){
     char temp[512];
 
     for (int j = 0; j < nbField; j++) // on propose à l'utilisateur de saisir une valeur pour chaque champ du document 

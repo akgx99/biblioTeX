@@ -5,10 +5,10 @@
 int isDocumentExist();
 
 /* Permet de récupérer les champs du document depuis sa fiche type */
-void setField();
+void setFields();
 
 /* Permet à l'utilisateur de saisir des données pour un document */
-void input();
+void setValues();
 
 /* Permet d'écrire dans un fichier .bib les données d'un document */
 void write();
