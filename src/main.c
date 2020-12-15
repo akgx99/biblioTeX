@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "biblioManager.h"
+#include "export.h"
 #include "tools.h"
 
 int main(int argc, char *argv[])
