@@ -25,14 +25,15 @@ int main(int argc, char *argv[])
     }
     else if(strcmp(argv[1], "-delete") == 0) {  //-delete <document>
 
-        if (!isDocumentExist(argv[2]))
+        if (0 == find(argv[2]))
         {
-            char *err = strcat(argv[2], " document to be deleted does not exist in the database.");;
+            char *err = strcat(argv[2], " document to be deleted does not exist in the database.");
             printError(err);
             return EXIT_FAILURE;
+        }else {
+            delete(argv[2]);
+            return EXIT_SUCCESS;
         }
-        
-        return EXIT_SUCCESS;
     }
     else if(strcmp(argv[1], "-export") == 0) { //-export <type>
         
