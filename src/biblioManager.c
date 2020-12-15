@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "tools.h"
 
-char const PATH_BIB[35] = "TestFile/test.bib"; // chemin vers le .bib
+char const PATH_BIB[35] = "out/start.bib"; // chemin vers le .bib
 char const PATH_ALL_DOC[35] = "data/bibTeX/all.type"; // chemin vers all.type (fichier ou se trouve toute les infos des document bibtex)
 
 char *typeDoc,
@@ -83,8 +83,8 @@ void addDocument(char *type){
 
     if (isDocumentExist() == 1){ // le type de document saisi existe
         printf("*** Ajout d'un document de type %s ***\n", typeDoc);
-        setField();
-        input();
+        setFields();
+        setValues();
         write();
         printf("\n*** Votre document à bien été ajouté à la base ! Dans le fichier : %s ***\n", PATH_BIB);
     }
