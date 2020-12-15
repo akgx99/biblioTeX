@@ -19,10 +19,18 @@ int main(int argc, char *argv[])
         printHelp();
         return EXIT_SUCCESS;
     }
-    else if(strcmp(argv[1], "-add") == 0) {  //-add <type>
+    else if(strcmp(argv[1], "-add") == 0) {  //-add <type
 
-        addDocument(argv[2]);
-        return EXIT_SUCCESS;
+        if (isTypeDocumentExist(argv[2]) == 1){ // le type de document saisi existe
+            printf("*** Ajout d'un document de type %s ***\n", argv[2]);
+            addDocument(argv[2]);
+            printf("*** Votre document à bien été ajouté à la base ! ***\n");
+            return EXIT_SUCCESS;
+
+        }else{ // il n'existe pas
+            printError(strcat(argv[2]," is an invalid document type."));
+            return EXIT_FAILURE;
+        }
     }
     else if(strcmp(argv[1], "-delete") == 0) {  //-delete <document>
 

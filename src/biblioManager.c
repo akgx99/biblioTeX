@@ -79,19 +79,10 @@ void writeInDocument(){
 }
 
 void addDocument(char *type){
-
     typeDoc = type;
-
-    if (isDocumentExist() == 1){ // le type de document saisi existe
-        printf("*** Ajout d'un document de type %s ***\n", typeDoc);
-        setfields();
-        setvalues();
-        writeInDocument();
-        printf("*** Votre document à bien été ajouté à la base ! chemin du fichier : %s ***\n", PATH_BIB);
-    }
-    else{ // il n'existe pas
-        printError(strcat(typeDoc," is an invalid document type."));
-    }
+    setfields();
+    setvalues();
+    writeInDocument();
 }
 
 int find(char *name){
