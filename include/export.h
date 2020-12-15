@@ -7,4 +7,5 @@ void showStats(char *folder, char *script);
 /*Permet d'exporter la bibliographie au format pdf ou txt*/
 void exportBiblio(char *ext);
 
+
 #endif
