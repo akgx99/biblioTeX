@@ -33,6 +33,17 @@ int main(int argc, char *argv[])
         
         return EXIT_SUCCESS;
     }
+    else if(strcmp(argv[1], "-export") == 0) { //-export <type>
+        
+        if(strcmp(argv[2], "pdf") == 0 || strcmp(argv[2], "txt") == 0){
+            exportBiblio(argv[2]);
+            return EXIT_SUCCESS;
+        }else{
+            char *err = strcat(argv[2], ", invalid document extension : pdf or txt only");
+            printError(err);
+            return EXIT_FAILURE;
+        }
+    }
     else{ // cas d'erreur général
         printError("Argument invalid");
         return EXIT_FAILURE;
