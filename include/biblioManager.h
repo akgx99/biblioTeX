@@ -2,7 +2,7 @@
 #define H_GL_BIBLIOMANAGER
 
 /* Permet de dire si un type document existe ou non */
-int isDocumentExist();
+int isTypeDocumentExist(char *type);
 
 /* Permet de récupérer les champs du document depuis sa fiche type */
 void setFields();

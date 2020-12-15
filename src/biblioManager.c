@@ -14,17 +14,17 @@ char *typeDoc,
 
 int nbfields = 0; // le nombre de champs
 
-int isDocumentExist(){
+int isTypeDocumentExist(char *type){
     FILE* file;
-    char  line[256] = {"\0"};
+    char  line[256] = {"\0"}, *doc;
     int exist = 0;
 
-    typeDoc = strlw(typeDoc);
+    doc = strlw(type);
 
     file = fopen(PATH_ALL_DOC, "r");
     while (fgets(line, sizeof(line), file)){
         removeLnBreak(line);
-        if(strcmp(typeDoc, line) == 0)
+        if(strcmp(doc, line) == 0)
            exist = 1;
     }
     fclose(file);
