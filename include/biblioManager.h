@@ -16,4 +16,7 @@ void write();
 /* Permet d'ajouter un document à la base de données */
 void addDocument(char *type);
 
+/* Permet de déterminer si document existe ou non */
+void find(char *name);
+
 #endif

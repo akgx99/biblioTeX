@@ -3,15 +3,15 @@
 #include <stdlib.h>
 #include "tools.h"
 
-char const PATH_BIB[35] = "out/start.bib"; // chemin vers le .bib
-char const PATH_ALL_DOC[35] = "data/bibTeX/all.type"; // chemin vers all.type (fichier ou se trouve toute les infos des document bibtex)
+char PATH_BIB[35] = "out/start.bib"; // chemin vers le .bib
+char PATH_ALL_DOC[35] = "data/bibTeX/all.type"; // chemin vers all.type (fichier ou se trouve toute les infos des document bibtex)
 
 char *typeDoc,
-     field[20][50], // les champs du document
-     value[20][512] // les valeurs des champs
+     fields[20][50], // les champs du document
+     values[20][512] // les valeurs des champs
      = {"\0"};
 
-int nbField = 0; // le nombre de champs
+int nbfields = 0; // le nombre de champs
 
 int isDocumentExist(){
     FILE* file;
@@ -31,7 +31,7 @@ int isDocumentExist(){
     return exist;
 }
 
-void setFields(){
+void setfields(){
     FILE* file;
     char  absolutePath[130],
           line[50];
@@ -43,21 +43,21 @@ void setFields(){
     file = fopen(absolutePath, "r");
     while (fgets(line, sizeof(line), file)) {
         removeLnBreak(line);
-        strcpy(field[nbField],line);
-        nbField++;
+        strcpy(fields[nbfields],line);
+        nbfields++;
     }
     fclose(file);
 }
 
-void setValues(){
+void setvalues(){
     char temp[512];
 
-    for (int j = 0; j < nbField; j++) // on propose à l'utilisateur de saisir une valeur pour chaque champ du document 
+    for (int j = 0; j < nbfields; j++) // on propose à l'utilisateur de saisir une valeur pour chaque champ du document 
     {
-       printf("%s : ", field[j]);
+       printf("%s : ", fields[j]);
        scanf("%512[^\n]%*c",temp); //permet de prendre en compte les espaces de la chaînes de caractères
        removeLnBreak(temp);
-       strcpy(value[j], temp);
+       strcpy(values[j], temp);
     }
 }
 
@@ -68,9 +68,9 @@ void write(){
     file = fopen(PATH_BIB, "a");
 
     fprintf(file, "\n");
-    fprintf(file, "@%s{%s,\n", type, value[0]); // écriture de la premier ligne du document à insérer dans le .bib
-    for(int i = 1; i < nbField; i++){ // écriture des caractéristiques du document avec les valeurs saisie par l'utilisateur
-        fprintf(file, "%s = {%s},\n", field[i], value[i]);
+    fprintf(file, "@%s{%s,\n", type, values[0]); // écriture de la premier ligne du document à insérer dans le .bib
+    for(int i = 1; i < nbfields; i++){ // écriture des caractéristiques du document avec les valeurs saisie par l'utilisateur
+        fprintf(file, "%s = {%s},\n", fields[i], values[i]);
     }
     fprintf(file, "}\n");
 
@@ -83,8 +83,8 @@ void addDocument(char *type){
 
     if (isDocumentExist() == 1){ // le type de document saisi existe
         printf("*** Ajout d'un document de type %s ***\n", typeDoc);
-        setFields();
-        setValues();
+        setfields();
+        setvalues();
         write();
         printf("\n*** Votre document à bien été ajouté à la base ! Dans le fichier : %s ***\n", PATH_BIB);
     }
