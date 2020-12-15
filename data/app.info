@@ -7,7 +7,7 @@
 | )___) )___) (___| )___) )| (____/\___) (___| (___) |   | |   | (____/\( /   \ )
 |/ \___/ \_______/|/ \___/ (_______/\_______/(_______)   )_(   (_______/|/     \|
                                                                                  
-Chantony Ty & Thomas Bénas.																				 
+Chantony Ty & Thomas Bénas -- projet de SR L3 info																				 
                                                 
 Permet de gérer une bibliographie LaTeX au format .bib
                                                                                                                                                                          
@@ -22,7 +22,10 @@ Usage : ./bibTeX <options> [<document>] [<type>]
         -add <type>                         : permet d'ajouter un document à la bibliographie.  
              article || book || incollection || inproceedings || misc || standard || techreport || these
 
-        -import                             : permet d'ajouter un document à la bibliographie à partir d'un fichier csv, txt, pdf.
+        -import <file>                      : permet d'ajouter un document à la bibliographie à partir d'un fichier csv, txt, voire bib.
+
+        -export <type>                      : permet d'exporter au format pdf ou txt la bibliographie
+                pdf || txt
 	
         -delete <document>                  : permet de supprimer un document.
 	
