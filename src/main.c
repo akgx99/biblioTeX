@@ -5,11 +5,10 @@
 #include "export.h"
 #include "tools.h"
 
-int main(int argc, char *argv[])
-{   
+int main(int argc, char *argv[]){   
 
     //vérification du bon nombre d'argument
-    if(argc < 2 || argc > 3){
+    if(argc < 2 || argc > 4){
 
         printError("Number of argument invalid");
         return EXIT_FAILURE;
@@ -32,15 +31,15 @@ int main(int argc, char *argv[])
             return EXIT_FAILURE;
         }
     }
-    else if(strcmp(argv[1], "-delete") == 0) {  //-delete <document>
+    else if(strcmp(argv[1], "-delete") == 0) {  //-delete <name>
 
-        if (0 == find(argv[2]))
+        if (0 == findDocument(argv[2]))
         {
             char *err = strcat(argv[2], " document to be deleted does not exist in the database.");
             printError(err);
             return EXIT_FAILURE;
         }else {
-            delete(argv[2]);
+            deleteDocument(argv[2]);
             return EXIT_SUCCESS;
         }
     }
@@ -55,17 +54,38 @@ int main(int argc, char *argv[])
             return EXIT_FAILURE;
         }
     }
-    else if(strcmp(argv[1], "-find") == 0) { //-find <document>
+    else if(strcmp(argv[1], "-find") == 0) { //-find <name>
 
          if(argc == 3){
-            if(find(argv[2]) == 0){
-                printf("Le document \"%s\" n'existe pas dans la base.\n", argv[2]);
+            if(findDocument(argv[2]) == 0){
+                printf("\"%s\", this document does not exist in the database.\n", argv[2]);
             } else {
-                printf("Le document \"%s\" existe bien dans la base.\n", argv[2]);
+                printf("\"%s\", this document does exist in the database.\n", argv[2]);
             }
             return EXIT_SUCCESS;
         }else{
             char *err = "Specify the name of the document.";
+            printError(err);
+            return EXIT_FAILURE;
+        }
+    }
+    else if(strcmp(argv[1], "-update") == 0) { //-update <name> <type>
+        if(argc == 4){
+            if(findDocument(argv[2]) == 1){ // le document existe dans la base
+                if (isTypeDocumentExist(argv[3]) == 1){ // le type de document saisi existe
+                    updateDocument(argv[2], argv[3]);
+                    return EXIT_SUCCESS;
+                  }else{ // le type de document n'existe pas
+                    printError(strcat(argv[2]," is an invalid document type."));
+                    return EXIT_FAILURE;
+                }
+            } else{ // le document n'existe pas dans la base
+                char *err = strcat(argv[2], ", this document does not exist in the database.");
+                printError(err);
+                return EXIT_FAILURE;
+            }
+        } else{ // pas le bon nombre d'argument
+            char *err = "Specify the name of the document and its new type.";
             printError(err);
             return EXIT_FAILURE;
         }

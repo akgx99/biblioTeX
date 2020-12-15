@@ -17,9 +17,12 @@ void writeInDocument();
 void addDocument(char *type);
 
 /* Permet de déterminer si document existe ou non dans la base de données */
-int find(char *name);
+int findDocument(char *name);
 
 /* Permet de supprimer un document de la base de données*/
-void delete(char *name);
+void deleteDocument(char *name);
+
+/* Permet de mettre à jour un document */
+void updateDocument(char *name, char *type);
 
 #endif

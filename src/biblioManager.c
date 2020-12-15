@@ -85,7 +85,7 @@ void addDocument(char *type){
     writeInDocument();
 }
 
-int find(char *name){
+int findDocument(char *name){
     int res = 0;
 
     static char toFind[300];
@@ -101,6 +101,14 @@ int find(char *name){
     return res;
 }
 
-void delete(char *name){
-    execl("script/./delete.sh", "script/./delete.sh", (char*) PATH_BIB, name, NULL);
+void deleteDocument(char *name){
+    int pid = fork(); // fork necessaire sinon impossible de continuer d'exécuter le programme après le execl()
+	if ( pid == 0 )
+		execl("script/./delete.sh", "script/./delete.sh", (char*) PATH_BIB, name, NULL);
+	sleep(0.1);
+}
+
+void updateDocument(char *name, char *type){
+   deleteDocument(name);
+   addDocument(type);
 }
