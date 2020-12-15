@@ -102,9 +102,9 @@ void find(char *name){
     strcat(toFind, ",");
 
     if(findstr(toFind, PATH_BIB) == 1){
-        printf("\nle document \"%s\" existe dans la base\n", name);
+        printf("Le document \"%s\" existe dans la base.\n", name);
     }
     else{
-         printf("\nle document \"%s\" n'existe pas dans la base\n", name);
+         printf("Le document \"%s\" n'existe pas dans la base.\n", name);
     }
 }
