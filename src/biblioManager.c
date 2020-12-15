@@ -61,7 +61,7 @@ void setvalues(){
     }
 }
 
-void write(){
+void writeInDocument(){
     FILE* file;
     char *type = typeDoc;
 
@@ -85,8 +85,7 @@ void addDocument(char *type){
         printf("*** Ajout d'un document de type %s ***\n", typeDoc);
         setfields();
         setvalues();
-        write();
-        printf("\n*** Votre document à bien été ajouté à la base ! Dans le fichier : %s ***\n", PATH_BIB);
+        writeInDocument();
     }
     else{ // il n'existe pas
         printError(strcat(typeDoc," is an invalid document type."));

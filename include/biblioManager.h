@@ -11,7 +11,7 @@ void setFields();
 void setValues();
 
 /* Permet d'écrire dans un fichier .bib les données d'un document */
-void write();
+void writeInDocument();
 
 /* Permet d'ajouter un document à la base de données */
 void addDocument(char *type);
