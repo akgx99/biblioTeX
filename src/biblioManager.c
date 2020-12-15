@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "tools.h"
 
 char PATH_BIB[35] = "out/start.bib"; // chemin vers le .bib
@@ -86,13 +87,15 @@ void addDocument(char *type){
         setfields();
         setvalues();
         writeInDocument();
+        printf("*** Votre document à bien été ajouté à la base ! chemin du fichier : %s ***\n", PATH_BIB);
     }
     else{ // il n'existe pas
         printError(strcat(typeDoc," is an invalid document type."));
     }
 }
 
-void find(char *name){
+int find(char *name){
+    int res = 0;
 
     static char toFind[300];
 
@@ -101,9 +104,13 @@ void find(char *name){
     strcat(toFind, ",");
 
     if(findstr(toFind, PATH_BIB) == 1){
-        printf("Le document \"%s\" existe dans la base.\n", name);
+        res = 1;
     }
-    else{
-         printf("Le document \"%s\" n'existe pas dans la base.\n", name);
-    }
+
+    return res;
+}
+
+void delete(char *name){
+    execl(".sh script/delete.sh", (char*) PATH_BIB, name, NULL);
+    printf("*** Votre document à bien été supprimé de la base ! chemin du fichier : %s ***\n", PATH_BIB);
 }

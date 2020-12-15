@@ -19,7 +19,6 @@ do
     fi
 done < $1
 
-sed ${j},${k}'d' $1
-echo $j
-echo $k
-echo $trouve
+sed ${j},${k}'d' $1 > temp.bib
+cat temp.bib > $1
+rm temp.bib
