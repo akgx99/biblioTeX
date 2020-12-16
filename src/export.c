@@ -55,7 +55,7 @@ void createLatexDoc(){
 
     fprintf(file, "\\begin{document}\n");
      for(int i = 0; i < nbLine; i++){
-        fprintf(file, "     \\cite{ %s}\n", value[i]);
+        fprintf(file, "     \\cite{%s}\n", value[i]);
     }
 
     fprintf(file, "     \\bibliographystyle{alpha}\n");
