@@ -10,7 +10,7 @@ do
    if [[ $line =  *${2}* ]] #Si la ligne contient la chaîne passée en paramètres
    then
         j=$i
-        trouve=0
+         trouve=0
     fi
     if [[ $line =  "}" ]] && [ $trouve = 0 ] #Si on a trouvé le document et que la ligne contient seulement "}"
         then
@@ -21,4 +21,4 @@ done < $1
 
 sed ${j},${k}'d' $1 > temp.bib #Suppression des lignes à partir de l'élément trouvé jusqu'à la prochaine accolade dans un fichier temporaire
 cat temp.bib > $1 
-rm temp.bib
+rm temp.bib 
