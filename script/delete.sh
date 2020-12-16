@@ -12,7 +12,7 @@ do
         j=$i
          trouve=0
     fi
-    if [[ $line =  "}" ]] && [ $trouve = 0 ] #Si on a trouvé le document et que la ligne contient seulement "}"
+    if [[ $line =  "}" ]] && [ $trouve = 0 ] #si on a trouvé le document et que la ligne contient seulement "}"
         then
         k=$i
         trouve=1
