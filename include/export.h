@@ -9,4 +9,6 @@ void exportBiblio(char *ext);
 
 void createLatexDoc();
 
+/* Ajouter une citation au document LaTeX */
+void addCiteLatex(char *name);
 #endif

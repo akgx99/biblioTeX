@@ -4,6 +4,8 @@
 #include <string.h>
 #include "tools.h"
 
+char PATH_TO_BIBTEXKEY[35] = "out/bibtexkey.txt";
+
 void showStats(char *folder, char *script) {
     
     int system(const char *command);
@@ -21,4 +23,20 @@ void exportBiblio(char *ext){
     {
         printf("*** Export de la bibliographie en txt ***\n");
     }
+}
+
+void addCiteLatex(char *name){
+    FILE* file;
+
+    file = fopen(PATH_TO_BIBTEXKEY, "a");
+    fprintf(file, "%s \n", name);
+    fclose(file);
+}
+
+void deleteCiteLatex(char *name){
+    FILE* file;
+
+    file = fopen(PATH_TO_BIBTEXKEY, "a");
+    fprintf(file, "%s \n", name);
+    fclose(file);
 }

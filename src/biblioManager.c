@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "tools.h"
+#include "export.h"
 
 char PATH_BIB[35] = "out/start.bib"; // chemin vers le .bib
 char PATH_ALL_DOC[35] = "data/bibTeX/all.type"; // chemin vers all.type (fichier ou se trouve toute les infos des document bibtex)
@@ -83,6 +84,7 @@ void addDocument(char *type){
     setfields();
     setvalues();
     writeInDocument();
+    addCiteLatex(values[0]);
 }
 
 int findDocument(char *name){
