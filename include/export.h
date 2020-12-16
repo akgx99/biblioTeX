@@ -10,6 +10,9 @@ void exportBiblio(char *ext);
 /* Permet de créer le document LaTeX */
 void createLatexDoc();
 
+/* Permet de compiler le document latex avec les références */
+void buildLatexDoc();
+
 /* Ajouter une citation au document LaTeX */
 void addCiteLatex(char *name);
 
