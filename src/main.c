@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
         printHelp();
         return EXIT_SUCCESS;
     }
-    else if(strcmp(argv[1], "-add") == 0) {  //-add <type
+    else if(strcmp(argv[1], "-add") == 0) {  //-add <type>
 
         if (isTypeDocumentExist(argv[2]) == 1){ // le type de document saisi existe
             printf("*** Ajout d'un document de type %s ***\n", argv[2]);
