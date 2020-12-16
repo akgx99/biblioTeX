@@ -64,19 +64,24 @@ void setvalues(){
 }
 
 void writeInDocument(){
-    FILE* file;
-    char *type = typeDoc;
+    if(findDocument(values[0]) == 0){ // si le document n'existe pas déjà
+        FILE* file;
+        char *type = typeDoc;
 
-    file = fopen(PATH_BIB, "a");
+        file = fopen(PATH_BIB, "a");
 
-    fprintf(file, "\n");
-    fprintf(file, "@%s{%s,\n", type, values[0]); // écriture de la premier ligne du document à insérer dans le .bib
-    for(int i = 1; i < nbfields; i++){ // écriture des caractéristiques du document avec les valeurs saisie par l'utilisateur
-        fprintf(file, "%s = {%s},\n", fields[i], values[i]);
+        fprintf(file, "\n");
+        fprintf(file, "@%s{%s,\n", type, values[0]); // écriture de la premier ligne du document à insérer dans le .bib
+        for(int i = 1; i < nbfields; i++){ // écriture des caractéristiques du document avec les valeurs saisie par l'utilisateur
+            fprintf(file, "%s = {%s},\n", fields[i], values[i]);
+        }
+        fprintf(file, "}\n");
+
+        fclose(file);
+    }else{
+     printf("*** document \"%s\" already exists in the database ***\n", values[0]);
+     exit(1);
     }
-    fprintf(file, "}\n");
-
-    fclose(file);
 }
 
 void addDocument(char *type){
