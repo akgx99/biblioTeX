@@ -108,6 +108,7 @@ void deleteDocument(char *name){
 	if ( pid == 0 )
 		execl("script/./delete.sh", "script/./delete.sh", (char*) PATH_BIB, name, NULL);
 	sleep(0.1);
+    deleteCiteLatex(name);
 }
 
 void updateDocument(char *name, char *type){

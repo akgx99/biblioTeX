@@ -34,9 +34,14 @@ void addCiteLatex(char *name){
 }
 
 void deleteCiteLatex(char *name){
-    FILE* file;
+   char line[1024] ;
+   FILE* f = fopen(PATH_TO_BIBTEXKEY, "w");
 
-    file = fopen(PATH_TO_BIBTEXKEY, "a");
-    fprintf(file, "%s \n", name);
-    fclose(file);
+   while (fgets(line , sizeof(line) , f )!= NULL)
+   {
+      if (strstr(line , name )!= NULL)
+      {
+         strcpy(line, " ");
+      }
+   }
 }

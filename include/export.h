@@ -11,4 +11,8 @@ void createLatexDoc();
 
 /* Ajouter une citation au document LaTeX */
 void addCiteLatex(char *name);
+
+/* Supprimer une citation du document LaTeX */
+void deleteCiteLatex(char *name);
+
 #endif
