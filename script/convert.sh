@@ -1,0 +1,1 @@
+pdftotext out/start.pdf

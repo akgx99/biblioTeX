@@ -85,6 +85,6 @@ void exportBiblio(char *ext){
     {
         createLatexDoc();
         buildLatexDoc();
-        execl("pdftotext", "pdftotext", "out/start.pdf", NULL);
+        execl("script/./export.sh", "script/./export.sh", NULL);
     }
 }
