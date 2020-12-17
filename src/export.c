@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <signal.h>
+#include <sys/types.h>
 #include "tools.h"
 
 char PATH_TO_BIBTEXKEY[35] = "data/bibtexkey.txt";
@@ -72,7 +74,10 @@ void deleteCiteLatex(char *name){
 }
 
 void buildLatexDoc(){
-    execl("script/./buildLatexDoc.sh", "script/./buildLatexDoc.sh", NULL);
+    pid_t pid = fork(); // fork necessaire sinon impossible de continuer d'exécuter le programme après le execl()
+	if ( pid == 0 )
+		execl("script/./buildLatexDoc.sh", "script/./buildLatexDoc.sh", NULL);
+	wait(1);   
 }
 
 void exportBiblio(char *ext){
@@ -83,8 +88,8 @@ void exportBiblio(char *ext){
     }
     else if(strcmp(ext, "txt") == 0) // sinon si l'extension est txt
     {
-        //createLatexDoc();
-        //buildLatexDoc();
+        createLatexDoc();
+        buildLatexDoc();
         execl("script/./convert.sh", "script/./convert.sh", NULL);
     }
 }
