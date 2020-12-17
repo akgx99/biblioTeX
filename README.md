@@ -8,8 +8,7 @@ Projet de système et réseaux de Licence 3 d'informatique
 - make
 - pdftotext
 - gnuplot
-- shell
-- awk
+- bash
 
 ## Arborescence
 
@@ -36,4 +35,4 @@ Dans un terminal à la racine du projet :
 
 Pour éxécuter le programme :
 
-`./biblioTeX <option> [<document>]`
+`./biblioTeX <option> [<type>] [<name>]`
