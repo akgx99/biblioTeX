@@ -83,8 +83,8 @@ void exportBiblio(char *ext){
     }
     else if(strcmp(ext, "txt") == 0) // sinon si l'extension est txt
     {
-        createLatexDoc();
-        buildLatexDoc();
-        execl("script/./export.sh", "script/./export.sh", NULL);
+        //createLatexDoc();
+        //buildLatexDoc();
+        execl("script/./convert.sh", "script/./convert.sh", NULL);
     }
 }
