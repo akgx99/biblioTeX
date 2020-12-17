@@ -63,6 +63,22 @@ void setvalues(){
     }
 }
 
+int findDocument(char *name){
+    int res = 0;
+
+    static char toFind[300];
+
+    strcat(toFind, "{");
+    strcat(toFind, name);
+    strcat(toFind, ",");
+
+    if(findstr(toFind, PATH_BIB) == 1){
+        res = 1;
+    }
+
+    return res;
+}
+
 void writeInDocument(){
     if(findDocument(values[0]) == 0){ // si le document n'existe pas déjà
         FILE* file;
@@ -92,22 +108,6 @@ void addDocument(char *type){
     addCiteLatex(values[0]);
 }
 
-int findDocument(char *name){
-    int res = 0;
-
-    static char toFind[300];
-
-    strcat(toFind, "{");
-    strcat(toFind, name);
-    strcat(toFind, ",");
-
-    if(findstr(toFind, PATH_BIB) == 1){
-        res = 1;
-    }
-
-    return res;
-}
-
 void deleteDocument(char *name){
     int pid = fork(); // fork necessaire sinon impossible de continuer d'exécuter le programme après le execl()
 	if ( pid == 0 )
@@ -119,4 +119,15 @@ void deleteDocument(char *name){
 void updateDocument(char *name, char *type){
    deleteDocument(name);
    addDocument(type);
+}
+
+void listDocuments(){
+    FILE* file;
+    char  line[256];
+
+    file = fopen("data/bibtexkey.txt", "r");
+    while (fgets(line, sizeof(line), file)) {
+       printf(line);
+    }
+    fclose(file);
 }

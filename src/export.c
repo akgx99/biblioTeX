@@ -4,7 +4,7 @@
 #include <string.h>
 #include "tools.h"
 
-char PATH_TO_BIBTEXKEY[35] = "out/bibtexkey.txt";
+char PATH_TO_BIBTEXKEY[35] = "data/bibtexkey.txt";
 char PATH_TO_TEX[35] = "out/start.tex";
 
 void showStats(char *folder, char *script) {
@@ -13,22 +13,6 @@ void showStats(char *folder, char *script) {
 
     chdir(folder);
     system(script);
-}
-
-void exportBiblio(char *ext){
-    if(strcmp(ext, "pdf") == 0) // si l'extension est pdf 
-    {
-        createLatexDoc();
-        buildLatexDoc();
-    }
-    else if(strcmp(ext, "txt") == 0) // sinon si l'extension est txt
-    {
-        printf("*** Export de la bibliographie en txt ***\n");
-    }
-}
-
-void buildLatexDoc(){
-    execl("script/./buildLatexDoc.sh", "script/./buildLatexDoc.sh", NULL);
 }
 
 void createLatexDoc(){
@@ -85,4 +69,20 @@ void deleteCiteLatex(char *name){
          strcpy(line, " ");
       }
    }
+}
+
+void buildLatexDoc(){
+    execl("script/./buildLatexDoc.sh", "script/./buildLatexDoc.sh", NULL);
+}
+
+void exportBiblio(char *ext){
+    if(strcmp(ext, "pdf") == 0) // si l'extension est pdf 
+    {
+        createLatexDoc();
+        buildLatexDoc();
+    }
+    else if(strcmp(ext, "txt") == 0) // sinon si l'extension est txt
+    {
+        printf("*** Export de la bibliographie en txt ***\n");
+    }
 }

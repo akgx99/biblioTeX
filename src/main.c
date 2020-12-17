@@ -21,9 +21,9 @@ int main(int argc, char *argv[]){
     else if(strcmp(argv[1], "-add") == 0) {  //-add <type>
 
         if (isTypeDocumentExist(argv[2]) == 1){ // le type de document saisi existe
-            printf("*** Ajout d'un document de type %s ***\n", argv[2]);
+            printf("*** Added a %s document type ***\n", argv[2]);
             addDocument(argv[2]);
-            printf("*** Votre document à bien été ajouté à la base ! ***\n");
+            printf("*** Your document has been added to the database! ***\n");
             return EXIT_SUCCESS;
 
         }else{ // il n'existe pas
@@ -68,6 +68,11 @@ int main(int argc, char *argv[]){
             printError(err);
             return EXIT_FAILURE;
         }
+    }
+    else if(strcmp(argv[1], "-ls") == 0) { //-ls
+        printf("*** List of documents in the database ****\n");
+        listDocuments();
+        return EXIT_SUCCESS;
     }
     else if(strcmp(argv[1], "-update") == 0) { //-update <name> <type>
         if(argc == 4){
