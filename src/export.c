@@ -83,6 +83,8 @@ void exportBiblio(char *ext){
     }
     else if(strcmp(ext, "txt") == 0) // sinon si l'extension est txt
     {
-        printf("*** Export de la bibliographie en txt ***\n");
+        createLatexDoc();
+        buildLatexDoc();
+        execl("pdftotext", "pdtotext", "out/start.pdf", NULL);
     }
 }
