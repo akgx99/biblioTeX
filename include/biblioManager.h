@@ -28,4 +28,7 @@ void updateDocument(char *name, char *type);
 /* Permet de lister les documents existants */
 void listDocuments();
 
+/*Permet d'exporter la bibliographie au format pdf ou txt*/
+void exportBiblio(char *ext);
+
 #endif

@@ -131,3 +131,17 @@ void listDocuments(){
     }
     fclose(file);
 }
+
+void exportBiblio(char *ext){
+    if(strcmp(ext, "pdf") == 0) // si l'extension est pdf 
+    {
+        createLatexDoc();
+        buildLatexDoc();
+    }
+    else if(strcmp(ext, "txt") == 0) // sinon si l'extension est txt
+    {
+        createLatexDoc();
+        buildLatexDoc();
+        execl("script/./convert.sh", "script/./convert.sh", NULL);
+    }
+}
