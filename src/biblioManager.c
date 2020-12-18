@@ -2,6 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include "tools.h"
 #include "export.h"
 
@@ -109,10 +112,10 @@ void addDocument(char *type){
 }
 
 void deleteDocument(char *name){
-    int pid = fork(); // fork necessaire sinon impossible de continuer d'exécuter le programme après le execl()
+    pid_t pid = fork(); // fork necessaire sinon impossible de continuer d'exécuter le programme après le execl()
 	if ( pid == 0 )
 		execl("script/./delete.sh", "script/./delete.sh", (char*) PATH_BIB, name, NULL);
-	sleep(0.1);
+	wait((int*) 1);
     deleteCiteLatex(name);
 }
 

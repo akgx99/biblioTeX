@@ -4,6 +4,7 @@
 #include <string.h>
 #include <signal.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include "tools.h"
 
 char PATH_TO_BIBTEXKEY[35] = "data/bibtexkey.txt";
@@ -77,5 +78,5 @@ void buildLatexDoc(){
     pid_t pid = fork(); // fork necessaire sinon impossible de continuer d'exécuter le programme après le execl()
 	if ( pid == 0 )
 		execl("script/./buildLatexDoc.sh", "script/./buildLatexDoc.sh", NULL);
-	wait(1);   
+	wait((int*) 1);   
 }
