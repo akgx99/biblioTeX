@@ -62,16 +62,10 @@ void addCiteLatex(char *name){
 }
 
 void deleteCiteLatex(char *name){
-   char line[1024] ;
-   FILE* f = fopen(PATH_TO_BIBTEXKEY, "w");
-
-   while (fgets(line , sizeof(line) , f )!= NULL)
-   {
-      if (strstr(line , name )!= NULL)
-      {
-         strcpy(line, " ");
-      }
-   }
+    pid_t pid = fork(); // fork necessaire sinon impossible de continuer d'exécuter le programme après le execl()
+	if ( pid == 0 )
+		execl("script/./deleteCiteLaTeX.sh", "script/./deleteCiteLaTeX.sh", (char*) name, PATH_TO_BIBTEXKEY, NULL);
+	wait((int*) 1);
 }
 
 void buildLatexDoc(){
