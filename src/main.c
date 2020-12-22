@@ -54,6 +54,17 @@ int main(int argc, char *argv[]){
             return EXIT_FAILURE;
         }
     }
+    else if(strcmp(argv[1], "-import") == 0) { //-import <path>
+        
+         if(strcmp(argv[2], "txt") == 0 || strcmp(argv[2], "csv") == 0){
+            exportBiblio(argv[2]);
+            return EXIT_SUCCESS;
+        }else{
+            char *err = strcat(argv[2], ", invalid document extension : txt or csv only");
+            printError(err);
+            return EXIT_FAILURE;
+        }
+    }
     else if(strcmp(argv[1], "-find") == 0) { //-find <name>
 
          if(argc == 3){
