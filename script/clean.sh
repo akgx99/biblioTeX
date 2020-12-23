@@ -5,3 +5,4 @@ rm start.bbl
 rm start.blg
 rm start.log
 rm start.out
+rm start.fls

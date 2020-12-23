@@ -1,12 +1,10 @@
-[Wik20] [Dic99] [tesst]
+[?] [?] [?]
 
 References
 [Dic99] Philip K. Dick. Ubik. j’ai lu, Entre deux mondes, 2264028815 edition,
 1999.
-[tesst]
-
-test. test. test, test test.
-
+[eFL16] Gérard Davet et Fabrice Lhomme. "Un président ne devrait pas dire
+ça". Points, France, stock edition, 2016.
 [Wik20] Wikipédia. Kouang-tchéou-wan. https://fr.wikipedia.org/wiki/
 Kouang-Tch%C3%A9ou-Wan, Décembre 2020.
 
